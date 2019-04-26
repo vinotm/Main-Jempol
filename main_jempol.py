@@ -1,13 +1,12 @@
 # Main Jempol (Thumbs Game)
-# Version 1.0.1 (26 April 2019)
+# Version 1.0.3 (26 April 2019)
 # Created by Vino Tri Mulia
 # Using Python 2
 
 ##################################
 
 # What is Main Jempol?
-# Main Jempol (Thumbs Game) is popular ice breaking game in Indonesia. It is played by several players (usually 3-7 people)
-# circling around and facing each other. Here are the rules:
+# Main Jempol (Thumbs Game) is popular ice breaking game in Indonesia. It is played by several players (usually 3-7 people) circling around and facing each other. Here are the rules:
 # 1. Initially, all players show both of their hand thumbs in down position (not raising).
 # 2. Each player, in turns, shout a guessed number of raised thumbs by all players.
 # 3. Simultaneously with the shout, all players may raise one or both thumbs, or no thumb at all.
@@ -15,13 +14,11 @@
 # 5. Game ends when a player guesses correctly twice (both thumbs are removed from the game), and he/she is declared as winner.
 
 # Note:
-# There is also variation where the game continues until there are two players left to defeat each other.
-# However, we don't use that variation in this script.
-
-# This Python script simulates real Main Jempol. You will play with several bots that you choose in the beginning of game.
-# Each player (including you) are set as perfect logician. This means all players will not make invalid decision or valid decision with absolute failure.
-# Example of invalid decision: raising 3 thumbs, shouting 10 thumbs where there are only 8 thumbs, etc.
-# Example of valid decision with absolute failure: there are 2 players left with 2 thumbs, one player raises 1 thumb but shouts 4 thumbs.
+# - There is also variation where the game continues until there are two players left to defeat each other. However, we don't use that variation in this script.
+# - This Python script simulates real Main Jempol. You will play with several bots that you choose in the beginning of game.
+# - Each player (including you) are set as perfect logician. This means all players will not make invalid decision or valid decision with absolute failure.
+# - Example of invalid decision: raising 3 thumbs, shouting 10 thumbs where there are only 8 thumbs, etc.
+# - Example of valid decision with absolute failure: there are 2 players left with 2 thumbs, one player raises 1 thumb but shouts 4 thumbs.
 
 ##################################
 
@@ -77,7 +74,7 @@ while thumbs.count(0) == 0:
         if i == 0:
             thumbs_validator = 0
             print "You have {} thumb(s) left.".format(thumbs[0])
-            print "Please enter number of your raised thumbs."
+            print "Please enter number of your raised thumb(s)."
             while thumbs_validator == 0:
                 try:
                     raised_thumbs = int(raw_input("Number of your raised thumb(s): "))
@@ -113,7 +110,8 @@ while thumbs.count(0) == 0:
             except:
                 print "Please enter an integer between {} and {}.".format(min_guess, max_guess)
     else:
-        guess = random.randint(0,max_guess)
+        guess = random.randint(min_guess,max_guess)
+        
     if current_player == 0:
         print "You guessed {}...".format(guess)
     else:
