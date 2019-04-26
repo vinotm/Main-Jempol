@@ -59,6 +59,7 @@ if current_player == 0:
     print "Based on random draw, player 0 (you) will start first.".format(current_player)
 else:
     print "Based on random draw, player {} will start first.".format(current_player)
+print ""
 
 ##################################
  
