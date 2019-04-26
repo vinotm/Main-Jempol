@@ -1,5 +1,5 @@
 # Main Jempol (Thumbs Game)
-# Version 1.0.0 (26 April 2019)
+# Version 1.0.1 (26 April 2019)
 # Created by Vino Tri Mulia
 # Using Python 2
 
@@ -95,21 +95,22 @@ while thumbs.count(0) == 0:
             turn_thumbs.append(rand_thumbs)
 
     # # Making the guess
+    min_guess = turn_thumbs[current_player]
     max_guess = sum(thumbs) - thumbs[current_player] + turn_thumbs[current_player]
     if current_player == 0:
         guess_validator = 0
         print "Please guess total number of raised thumb(s)."
-        print "Based on number of your raised thumb(s), the possible answer is between 0 and {}.".format(max_guess)
+        print "Based on number of your raised thumb(s), the possible answer is between {} and {}.".format(min_guess, max_guess)
         while guess_validator == 0:
             try:
                 guess = int(raw_input("Total number of raised thumb(s): "))
-                if guess < 0 or guess > max_guess:
-                    print "Please enter an integer between 0 and {}.".format(max_guess)
+                if guess < min_guess or guess > max_guess:
+                    print "Please enter an integer between {} and {}.".format(min_guess, max_guess)
                 else:
                     time.sleep(0.3)
                     guess_validator = 1
             except:
-                print "Please enter an integer between 0 and {}.".format(max_guess)
+                print "Please enter an integer between {} and {}.".format(min_guess, max_guess)
     else:
         guess = random.randint(0,max_guess)
     if current_player == 0:
